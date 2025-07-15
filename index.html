@@ -24,22 +24,21 @@
                 <li class="nav-item">
                     <a class="nav-link" id="tab-medevac-button" data-bs-toggle="tab" data-bs-target="#tab-medevac" type="button" role="tab">MEDEVAC</a>
                 </li>
-                <!-- NUEVA PESTAÑA -->
                 <li class="nav-item">
                     <a class="nav-link" id="tab-lz-button" data-bs-toggle="tab" data-bs-target="#tab-lz" type="button" role="tab">LZ BRIEFING</a>
                 </li>
             </ul>
 
             <div class="tab-content">
+
                 <!-- ===== CAS (sin cambios) ===== -->
                 <div class="tab-pane show active" id="tab-cas" role="tabpanel" aria-labelledby="tab-cas-button" tabindex="0">
-                    <!-- … TODO el código CAS que ya tenías … -->
-                    <!-- (No lo repito para ahorrar espacio; permanece intacto) -->
+                    <!-- … contenido original CAS … -->
                 </div>
 
                 <!-- ===== MEDEVAC (sin cambios) ===== -->
                 <div class="tab-pane" id="tab-medevac" role="tabpanel" aria-labelledby="tab-medevac-button" tabindex="0">
-                    <!-- … TODO el código MEDEVAC existente … -->
+                    <!-- … contenido original MEDEVAC … -->
                 </div>
 
                 <!-- ===== NUEVA PESTAÑA: LZ BRIEFING ===== -->
@@ -76,24 +75,39 @@
                                 </select>
                             </div>
 
-                            <!-- LÍNEA 4 -->
+                            <!-- LÍNEA 4 : viento DESDE / HACIA + intensidad -->
                             <div class="row gx-1 mb-1">
+                                <!-- etiqueta L4 -->
                                 <div class="col-auto">
                                     <span class="input-group-text" style="width:40px;">L4</span>
                                 </div>
+
+                                <!-- Viento DESDE -->
                                 <div class="col">
                                     <div class="input-group input-group-sm">
-                                        <span class="input-group-text" style="width:160px;">Viento (Dir)</span>
+                                        <span class="input-group-text" style="width:120px;">Viento DESDE</span>
                                         <select class="form-select">
-                                            <option>N-NE</option><option>N-E</option><option>N-SE</option>
-                                            <option>N-S</option><option>N-SW</option>
-                                            <!-- … añade el resto de combinaciones … -->
+                                            <option>N</option><option>NE</option><option>E</option><option>SE</option>
+                                            <option>S</option><option>SW</option><option>W</option><option>NW</option>
                                         </select>
                                     </div>
                                 </div>
+
+                                <!-- Viento HACIA -->
                                 <div class="col">
                                     <div class="input-group input-group-sm">
-                                        <span class="input-group-text" style="width:160px;">Intensidad</span>
+                                        <span class="input-group-text" style="width:120px;">Viento HACIA</span>
+                                        <select class="form-select">
+                                            <option>N</option><option>NE</option><option>E</option><option>SE</option>
+                                            <option>S</option><option>SW</option><option>W</option><option>NW</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!-- Intensidad -->
+                                <div class="col">
+                                    <div class="input-group input-group-sm">
+                                        <span class="input-group-text" style="width:120px;">Intensidad</span>
                                         <select class="form-select">
                                             <option>🟩 0.1–1.5 m/s Brisa muy ligera</option>
                                             <option>🟨 1.6–3.5 m/s Viento leve</option>
@@ -157,8 +171,8 @@
                                     <tr><td>CH-53</td><td>200'×300'</td><td>300'×400'</td><td>Gran barrido de rotor</td></tr>
                                     <tr><td>CH-46</td><td>100'×100'</td><td>200'×200'</td><td>Capaz terreno semirugoso</td></tr>
                                     <tr><td>UH-60</td><td>100'×100'</td><td>200'×200'</td><td>Sin armamento</td></tr>
-                                    <tr><td>UH-1N</td><td>75'×100'</td><td>150'×150'</td><td>Misiones / ordenanzas varias</td></tr>
-                                    <tr><td>AH-1W</td><td>75'×100'</td><td>150'×150'</td><td>Patines estrechos: requiere plano</td></tr>
+                                    <tr><td>UH-1N</td><td>75'×100'</td><td>150'×150'</td><td>Múltiples misiones</td></tr>
+                                    <tr><td>AH-1W</td><td>75'×100'</td><td>150'×150'</td><td>Patines estrechos, superficie plana</td></tr>
                                 </tbody>
                             </table>
                         </div>
@@ -181,13 +195,12 @@
                     </div>
                 </div>
                 <!-- ===== FIN LZ BRIEFING ===== -->
+
             </div>
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 </body>
-
 </html>
+

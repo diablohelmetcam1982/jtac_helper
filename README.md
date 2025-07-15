@@ -1,1 +1,1 @@
-https://diablohelmetcam82.github.io/sqa_jtac_helper/
+https://diablohelmetcam1982.github.io/jtac_helper/

@@ -750,18 +750,33 @@
     </div>
 
     <!-- LÍNEA 8 -->
-    <div class="input-group input-group-sm mb-3">
-      <span class="input-group-text" style="width:40px;">L8</span>
-      <span class="input-group-text" style="width:160px;">Aliados</span>
-      <select class="form-select" style="max-width:100px;">
-        <option>DIR</option>
-        <option>N</option><option>S</option><option>E</option><option>W</option>
-        <option>NE</option><option>NW</option><option>SE</option><option>SW</option>
-      </select>
-      <input class="form-control" style="max-width:80px;" placeholder="180">
-      <span class="input-group-text">m de la LZ</span>
-      <input class="form-control" placeholder="Escuadra de Infantería 8 pax">
+  <div class="row mb-3">
+  <label class="col-sm-2 col-form-label">L8 Aliados</label>
+  <div class="col-sm-3">
+    <label class="form-label">DIR</label>
+    <select class="form-select">
+      <option>N</option>
+      <option>S</option>
+      <option>E</option>
+      <option>W</option>
+      <option>NE</option>
+      <option>NW</option>
+      <option>SE</option>
+      <option>SW</option>
+    </select>
+  </div>
+  <div class="col-sm-3">
+    <label class="form-label">DIS</label>
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="180">
+      <span class="input-group-text">m</span>
     </div>
+  </div>
+  <div class="col-sm-4">
+    <label class="form-label">TIPO</label>
+    <input type="text" class="form-control" placeholder="Escuadra de Infantería 8 pax">
+  </div>
+</div>
 
     <!-- TABLA HELICÓPTEROS COMPLETA -->
     <h4 class="mt-3">Tamaño y consideraciones para LZ</h4>

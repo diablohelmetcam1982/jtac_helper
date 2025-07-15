@@ -24,6 +24,9 @@
                 <li class="nav-item">
                     <a class="nav-link" id="tab-medevac-button" data-bs-toggle="tab" data-bs-target="#tab-medevac" type="button" role="tab">MEDEVAC</a>
                 </li>
+				<li class="nav-item">
+  <a class="nav-link" id="tab-lz-button" data-bs-toggle="tab" data-bs-target="#tab-lz" type="button" role="tab">LZ BRIEFING</a>
+</li>
             </ul>
             <div class="tab-content">
                 <div class="tab-pane show active" id="tab-cas" role="tabpanel" aria-labelledby="tab-cas-button" tabindex="0">
@@ -646,6 +649,117 @@
                         </div>
                     </div>
                 </div>
+				  <!-- ==== PESTAÑA LZ BRIEFING (NUEVA) ==== -->
+  <div id="lz" class="tab-content">
+    <h2>LZ BRIEFING</h2>
+
+    <!-- Línea 1 -->
+    <label>Línea 1: Localización (GRID 8 dígitos)</label>
+    <input type="text" placeholder="0000 0000"/>
+
+    <!-- Línea 2 : Callsign / Freq -->
+    <label>Línea 2: Callsign / Freq</label>
+    <div class="row">
+      <input type="text" placeholder="ALPHA 1-1"/>
+      <input type="text" placeholder="Bloq 1"/>
+      <input type="text" placeholder="CH 1"/>
+    </div>
+
+    <!-- Línea 3 -->
+    <label>Línea 3: Marca en LZ</label>
+    <select>
+      <option>Alpha – Paneles</option>
+      <option>Bravo – Señal pirotécnica</option>
+      <option>Charlie – Humo</option>
+      <option>Delta – Ninguna</option>
+      <option>Echo – Otra</option>
+    </select>
+
+    <!-- Línea 4 -->
+    <label>Línea 4: Viento</label>
+    <div class="row">
+      <select><option>N</option><option>NE</option><option>E</option><option>SE</option><option>S</option><option>SW</option><option>W</option><option>NW</option></select>
+      <select><option>N</option><option>NE</option><option>E</option><option>SE</option><option>S</option><option>SW</option><option>W</option><option>NW</option></select>
+      <select>
+        <option>🟩 0.1-1.5 m/s Brisa ligera</option>
+        <option>🟨 1.6-3.5 m/s Viento leve</option>
+        <option>🟧 3.6-6.5 m/s Viento moderado</option>
+        <option>🟥 6.6-10 m/s Viento fuerte</option>
+        <option>🟪 10.1 m/s+ Viento extremo</option>
+      </select>
+    </div>
+
+    <!-- Línea 5 -->
+    <label>Línea 5: Tamaño LZ (ancho × largo)</label>
+    <div class="row">
+      <input class="small-input" type="text" placeholder="20"/>
+      <span class="x-text">×</span>
+      <input class="small-input" type="text" placeholder="30"/>
+      <span class="x-text">m</span>
+    </div>
+
+    <!-- Línea 6 -->
+    <label>Línea 6: Posibles amenazas</label>
+    <input type="text" placeholder="Árboles en E, línea AT al N"/>
+
+    <!-- Línea 7 -->
+    <label>Línea 7: Seguridad LZ</label>
+    <select>
+      <option>November – Sin enemigos</option>
+      <option>Papa – Posibles enemigos</option>
+      <option>Echo – Enemigos</option>
+      <option>X-Ray – Escolta armada</option>
+    </select>
+
+    <!-- Línea 8 -->
+    <label>Línea 8: Posición aliados</label>
+    <input type="text" placeholder="0000 0000"/>
+
+    <!-- Tabla helicópteros -->
+    <h3 class="mt-4">Tamaño y consideraciones para LZ</h3>
+    <div class="table-responsive">
+      <table>
+        <thead>
+          <tr>
+            <th>TIPO</th><th>ORIGEN</th><th>INDIV&nbsp;(m)</th><th>2 A/C&nbsp;(m)</th><th>SIZE</th><th>OBSERVACIONES</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>OH-6 / MH-6</td><td>EE. UU.</td><td>10×10</td><td>20×20</td><td>1</td><td>Inserción ligera</td></tr>
+          <tr><td>OH-58 Kiowa</td><td>EE. UU.</td><td>10×10</td><td>20×20</td><td>2</td><td>Observación</td></tr>
+          <tr><td>H-72A Lakota / EC145</td><td>EE. UU. / ALE</td><td>15×15</td><td>30×30</td><td>3</td><td>MEDEVAC</td></tr>
+          <tr><td>UH-1N / UH-1Y</td><td>EE. UU.</td><td>15×15</td><td>30×30</td><td>3</td><td>Multifunción</td></tr>
+          <tr><td>AH-1W / AH-1Z</td><td>EE. UU.</td><td>15×15</td><td>30×30</td><td>3</td><td>Ataque ligero</td></tr>
+          <tr><td>AW109</td><td>ITA / BEL</td><td>15×15</td><td>30×30</td><td>3</td><td>Ligero</td></tr>
+          <tr><td>NH90</td><td>OTAN</td><td>25×25</td><td>45×45</td><td>4</td><td>Transporte táctico</td></tr>
+          <tr><td>UH-60 Black Hawk</td><td>OTAN</td><td>25×25</td><td>45×45</td><td>4</td><td>Estándar OTAN</td></tr>
+          <tr><td>AH-64 Apache</td><td>EE. UU. / UK</td><td>25×25</td><td>45×45</td><td>4</td><td>Ataque pesado</td></tr>
+          <tr><td>AW149</td><td>ITA / POL</td><td>25×25</td><td>45×45</td><td>4</td><td>Alternativa BH</td></tr>
+          <tr><td>CH-46 Sea Knight</td><td>EE. UU.</td><td>30×30</td><td>60×60</td><td>5</td><td>Doble rotor</td></tr>
+          <tr><td>CH-47 Chinook</td><td>EE. UU./UK</td><td>30×30</td><td>60×60</td><td>5</td><td>Gran capacidad</td></tr>
+          <tr><td>H225M Caracal</td><td>FRA / POL</td><td>30×30</td><td>60×60</td><td>5</td><td>Pesa-do</td></tr>
+          <tr><td>Mi-8 / Mi-17</td><td>URSS / RUS</td><td>30×30</td><td>60×60</td><td>5</td><td>Robusto</td></tr>
+          <tr><td>CH-53E</td><td>EE. UU.</td><td>40×40</td><td>90×90</td><td>6</td><td>Muy grande</td></tr>
+          <tr><td>MV-22 Osprey</td><td>EE. UU.</td><td>40×40</td><td>90×90</td><td>6</td><td>Tilt-rotor</td></tr>
+          <tr><td>Merlin HC3/4</td><td>UK / ITA</td><td>40×40</td><td>90×90</td><td>6</td><td>Voluminoso</td></tr>
+          <tr><td>Mi-24 / 35</td><td>RUS / OTAN-E</td><td>30×30</td><td>60×60</td><td>5</td><td>Ataque/transp</td></tr>
+          <tr><td>Ka-52</td><td>RUS</td><td>25×25</td><td>45×45</td><td>4</td><td>Rotores coax</td></tr>
+          <tr><td>Mi-28</td><td>RUS</td><td>25×25</td><td>45×45</td><td>4</td><td>Ataque moderno</td></tr>
+          <tr><td>Ka-60 / 226</td><td>RUS</td><td>15×15</td><td>30×30</td><td>3</td><td>Lig-transp</td></tr>
+          <tr><td>Mi-26</td><td>URSS / RUS</td><td>45×45</td><td>120×120</td><td>7+</td><td>Más grande</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Guía señalización -->
+    <h3 class="mt-4">Guía de señalización de LZ</h3>
+    <img src="img/viento.png" class="img-fluid border border-light rounded" alt="Guía viento">
+    <p class="note">
+      *USA PANELES AÉREOS BIEN ASEGURADOS (DÍA), BARRAS QUÍMICAS (NOCHE), ESPEJO DE SEÑALES (DÍA) Y BUZZ SAW IR (NOCHE) PARA IDENTIFICACIÓN Y MARCADO DE LA ZONA DE ATERRIZAJE (LZ)
+    </p>
+
+  </div><!-- fin LZ -->
+</div><!-- fin .tab-content -->
             </div>
         </div>
     </div>

@@ -1,0 +1,15 @@
+table tr td img {
+    max-width: 32px;
+}
+
+form span img {
+    max-width: 32px;
+}
+
+.table-fit {
+    width: 1px;
+}
+
+::placeholder {
+    color: #cccccc !important;
+}

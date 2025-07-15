@@ -1,2 +1,1 @@
-# jtac_helper
-Forumlarios para JTAC del Squad ALPHA (basado en el de Napster)
+https://napster653.github.io/sqa_jtac_helper/

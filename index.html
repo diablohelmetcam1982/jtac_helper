@@ -1,288 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>JTAC Helper</title>
-  <link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css"/>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-      background: #111;
-      color: #eee;
-    }
-    h1, h2 {
-      text-align: center;
-      margin: 10px 0;
-    }
-    .tabs {
-      display: flex;
-      margin-bottom: 20px;
-      border-bottom: 2px solid #444;
-    }
-    .tab {
-      padding: 10px 20px;
-      cursor: pointer;
-      background: #222;
-      border: 1px solid #444;
-      border-bottom: none;
-      color: #ccc;
-      margin-right: 5px;
-      border-radius: 8px 8px 0 0;
-    }
-    .tab.active {
-      background: #333;
-      color: white;
-      font-weight: bold;
-    }
-    .tab-content {
-      display: none;
-      border: 1px solid #444;
-      padding: 20px;
-      background: #222;
-      border-radius: 0 0 8px 8px;
-    }
-    .tab-content.active {
-      display: block;
-    }
-    label {
-      display: block;
-      margin-top: 10px;
-    }
-    input[type="text"], select {
-      width: 100%;
-      padding: 5px;
-      margin-top: 4px;
-      margin-bottom: 10px;
-      background: #333;
-      color: white;
-      border: 1px solid #555;
-      border-radius: 4px;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
-    }
-    th, td {
-      border: 1px solid #555;
-      padding: 8px;
-      text-align: center;
-    }
-    th {
-      background: #333;
-    }
-    .row {
-      display: flex;
-      gap: 10px;
-    }
-    .row input {
-      flex: 1;
-    }
-    .note {
-      font-size: 0.9em;
-      margin-top: 5px;
-      color: #aaa;
-    }
-    .small-input {
-      width: 60px;
-    }
-    .x-text {
-      padding: 6px 4px;
-    }
-  </style>
+    <title>SQA JTAC Helper</title>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="shortcut icon" href="favicon.ico">
 </head>
-<body>
-  <h1>JTAC Helper</h1>
-  <div class="tabs">
-    <div class="tab active" onclick="openTab('cas')">CAS</div>
-    <div class="tab" onclick="openTab('medevac')">MEDEVAC</div>
-    <div class="tab" onclick="openTab('lz')">LZ BRIEFING</div>
-  </div>
 
-  <div id="cas" class="tab-content active">
-    <h2>Close Air Support (CAS) 9-Line</h2>
-    <label>Línea 1: IP / BP</label>
-    <input type="text" placeholder="Ej. DOG / BLUE"/>
+<body class="bg-dark text-light">
+    <div class="container-fluid mt-1">
+        <h1 class="text-center">JTAC Helper</h1>
+        <div class="mx-3">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" id="tab-cas-button" data-bs-toggle="tab" data-bs-target="#tab-cas" type="button" role="tab">CAS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="tab-medevac-button" data-bs-toggle="tab" data-bs-target="#tab-medevac" type="button" role="tab">MEDEVAC</a>
+                </li>
+                <!-- NUEVA PESTAÑA -->
+                <li class="nav-item">
+                    <a class="nav-link" id="tab-lz-button" data-bs-toggle="tab" data-bs-target="#tab-lz" type="button" role="tab">LZ BRIEFING</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <!-- CONTENIDO ORIGINAL DE LA PESTAÑA CAS -->
+                <div class="tab-pane fade show active" id="tab-cas" role="tabpanel">
+                    <object data="cas.html" type="text/html" width="100%" height="1000px"></object>
+                </div>
 
-    <label>Línea 2: Heading / Offset</label>
-    <input type="text" placeholder="Ej. 360 / LEFT"/>
+                <!-- CONTENIDO ORIGINAL DE LA PESTAÑA MEDEVAC -->
+                <div class="tab-pane fade" id="tab-medevac" role="tabpanel">
+                    <object data="medevac.html" type="text/html" width="100%" height="1000px"></object>
+                </div>
 
-    <label>Línea 3: Distance (NM)</label>
-    <input type="text" placeholder="Ej. 12"/>
+                <!-- NUEVA PESTAÑA LZ BRIEFING -->
+                <div class="tab-pane fade" id="tab-lz" role="tabpanel">
+                    <div class="mt-4">
+                        <h2 class="text-center mb-3">LZ BRIEFING</h2>
 
-    <label>Línea 4: Target Elevation (ft)</label>
-    <input type="text" placeholder="Ej. 2540"/>
+                        <form>
+                            <div class="mb-3">
+                                <label class="form-label">Línea 1 - Ubicación LZ (MGRS)</label>
+                                <input type="text" class="form-control" placeholder="Ej: 38S LB 12345 67890">
+                            </div>
 
-    <label>Línea 5: Target Description</label>
-    <input type="text" placeholder="Ej. 2 tanks in the open"/>
+                            <div class="mb-3">
+                                <label class="form-label">Línea 2 - Callsign / Freq</label>
+                                <div class="row">
+                                    <div class="col">
+                                        <input type="text" class="form-control" placeholder="ALPHA 1-1">
+                                    </div>
+                                    <div class="col">
+                                        <input type="text" class="form-control" placeholder="Bloq 1">
+                                    </div>
+                                    <div class="col">
+                                        <input type="text" class="form-control" placeholder="CH 1">
+                                    </div>
+                                </div>
+                            </div>
 
-    <label>Línea 6: Target Location</label>
-    <input type="text" placeholder="Ej. Grid AB123456"/>
+                            <div class="mb-3">
+                                <label class="form-label">Línea 3 - Marcado Nocturno (si aplica)</label>
+                                <select class="form-select">
+                                    <option selected disabled>Selecciona</option>
+                                    <option>Estroboscópica IR</option>
+                                    <option>IR Coded Panel</option>
+                                    <option>Luz química IR</option>
+                                    <option>Fuego / Antorcha</option>
+                                    <option>Otro (especificar por radio)</option>
+                                </select>
+                            </div>
 
-    <label>Línea 7: Mark Type</label>
-    <input type="text" placeholder="Ej. WP, Laser, IR, Beacon"/>
+                            <div class="mb-3">
+                                <label class="form-label">Línea 4 - Marcado Diurno (si aplica)</label>
+                                <select class="form-select">
+                                    <option selected disabled>Selecciona</option>
+                                    <option>Panel VS-17</option>
+                                    <option>Humo de color</option>
+                                    <option>Fuego / Bandeja</option>
+                                    <option>Otro (especificar por radio)</option>
+                                </select>
+                            </div>
 
-    <label>Línea 8: Friendly Location</label>
-    <input type="text" placeholder="Ej. 500m N of target"/>
+                            <div class="mb-3">
+                                <label class="form-label">Línea 5 - Tamaño LZ (m)</label>
+                                <div class="d-flex align-items-center gap-2">
+                                    <input type="text" class="form-control text-center" placeholder="20" style="max-width: 80px;">
+                                    <span class="text-light">x</span>
+                                    <input type="text" class="form-control text-center" placeholder="30" style="max-width: 80px;">
+                                    <span class="text-light">m</span>
+                                </div>
+                            </div>
 
-    <label>Línea 9: Egress</label>
-    <input type="text" placeholder="Ej. NW to IP DOG"/>
+                            <div class="mb-3">
+                                <label class="form-label">Línea 6 - Viento</label>
+                                <div class="row">
+                                    <div class="col">
+                                        <select class="form-select">
+                                            <option selected disabled>Desde</option>
+                                            <option>N</option>
+                                            <option>NE</option>
+                                            <option>E</option>
+                                            <option>SE</option>
+                                            <option>S</option>
+                                            <option>SW</option>
+                                            <option>W</option>
+                                            <option>NW</option>
+                                        </select>
+                                    </div>
+                                    <div class="col">
+                                        <select class="form-select">
+                                            <option selected disabled>Hacia</option>
+                                            <option>N</option>
+                                            <option>NE</option>
+                                            <option>E</option>
+                                            <option>SE</option>
+                                            <option>S</option>
+                                            <option>SW</option>
+                                            <option>W</option>
+                                            <option>NW</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
 
-    <label>Remarks / Restrictions</label>
-    <input type="text" placeholder="Ej. Danger close, laser code 1688"/>
+                            <div class="mb-3">
+                                <label class="form-label">Línea 7 - Terreno / Obstáculos</label>
+                                <input type="text" class="form-control" placeholder="Ej: Árboles al norte, edificio al este, postes en centro">
+                            </div>
 
-  </div>
+                            <div class="mb-3">
+                                <label class="form-label">Línea 8 - Amenazas / Seguridad</label>
+                                <input type="text" class="form-control" placeholder="Ej: Contacto lejano al sur, zona no asegurada">
+                            </div>
+                        </form>
 
-  <div id="medevac" class="tab-content">
-    <h2>MEDEVAC 9-Line</h2>
-    <label>Línea 1: Pickup Location</label>
-    <input type="text" placeholder="Ej. Grid AB123456"/>
+                        <h3 class="mt-5 text-center">TAMAÑO Y CONSIDERACIONES PARA LZ</h3>
 
-    <label>Línea 2: Radio Frequency / Call Sign</label>
-    <input type="text" placeholder="Ej. 40.5 / Alpha 1-1"/>
+                        <div class="table-responsive">
+                            <table class="table table-dark table-striped table-bordered table-sm align-middle">
+                                <thead class="table-secondary text-dark text-center">
+                                    <tr>
+                                        <th>TIPO DE HELICÓPTERO</th>
+                                        <th>PAÍS / ORIGEN</th>
+                                        <th>TAMAÑO INDIVIDUAL</th>
+                                        <th>TAMAÑO 2 A/C</th>
+                                        <th>SIZE OTAN</th>
+                                        <th>OBSERVACIONES</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>OH-6 / MH-6</td><td>EE. UU.</td><td>10 m</td><td>20 m</td><td>Size 1</td><td>Inserción ligera, rotor pequeño</td>
+                                    </tr>
+                                    <tr>
+                                        <td>OH-58 Kiowa</td><td>EE. UU.</td><td>10 m</td><td>20 m</td><td>Size 2</td><td>Observación / escolta</td>
+                                    </tr>
+                                    <tr>
+                                        <td>H-72A Lakota / EC145</td><td>EE. UU. / Alemania</td><td>15 m</td><td>30 m</td><td>Size 3</td><td>Ligero, MEDEVAC / utilidad</td>
+                                    </tr>
+                                    <tr>
+                                        <td>UH-1N / UH-1Y</td><td>EE. UU.</td><td>15 m</td><td>30 m</td><td>Size 3</td><td>Multifunción ligero</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AH-1W / AH-1Z</td><td>EE. UU. (USMC)</td><td>15 m</td><td>30 m</td><td>Size 3</td><td>Patines estrechos, terreno plano</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AW109</td><td>Italia, Bélgica</td><td>15 m</td><td>30 m</td><td>Size 3</td><td>Ligero, transporte/enlace</td>
+                                    </tr>
+                                    <tr>
+                                        <td>NH90 TTH / NFH</td><td>Multinacional OTAN</td><td>25 m</td><td>45 m</td><td>Size 4</td><td>Transporte táctico OTAN</td>
+                                    </tr>
+                                    <tr>
+                                        <td>UH-60 Black Hawk</td><td>EE. UU. / OTAN</td><td>25 m</td><td>45 m</td><td>Size 4</td><td>Estándar OTAN</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AH-64 Apache</td><td>EE. UU. / UK / Grecia</td><td>25 m</td><td>45 m</td><td>Size 4</td><td>Ataque pesado</td>
+                                    </tr>
+                                    <tr>
+                                        <td>AW149</td><td>Italia / Polonia</td><td>25 m</td><td>45 m</td><td>Size 4</td><td>Alternativa europea al Black Hawk</td>
+                                    </tr>
+                                    <tr>
+                                        <td>CH-46 Sea Knight</td><td>EE. UU. (retirado)</td><td>30 m</td><td>60 m</td><td>Size 5</td><td>Transporte medio, doble rotor</td>
+                                    </tr>
+                                    <tr>
+                                        <td>CH-47 Chinook</td><td>EE. UU. / UK / ESP / NL</td><td>30 m</td><td>60 m</td><td>Size 5</td><td>Gran capacidad, rotor tándem</td>
+                                    </tr>
+                                    <tr>
+                                        <td>H225M Caracal / EC725</td><td>Francia / Polonia</td><td>30 m</td><td>60 m</td><td>Size 5</td><td>Táctico pesado, moderna OTAN</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mi-8 / Mi-17</td><td>URSS / Rusia / OTAN-ESTE</td><td>30 m</td><td>60 m</td><td>Size 5</td><td>Muy común, robusto, gran capacidad</td>
+                                    </tr>
+                                    <tr>
+                                        <td>CH-53E Super Stallion</td><td>EE. UU.</td><td>40 m</td><td>90 m</td><td>Size 6</td><td>Muy grande, alta turbulencia</td>
+                                    </tr>
+                                    <tr>
+                                        <td>MV-22 Osprey</td><td>EE. UU.</td><td>40 m</td><td>90 m</td><td>Size 6</td><td>Rotor basculante, requiere espacio extra</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Merlin HC3/4 (AW101)</td><td>UK / Italia</td><td>40 m</td><td>90 m</td><td>Size 6</td><td>Gran volumen y longitud</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mi-24 / Mi-35 Hind</td><td>URSS / Rusia / OTAN-ESTE</td><td>30 m</td><td>60 m</td><td>Size 5</td><td>Ataque + transporte blindado</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ka-52 Alligator</td><td>Rusia</td><td>25 m</td><td>45 m</td><td>Size 4</td><td>Ataque, rotores coaxiales</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mi-28 Havoc</td><td>Rusia</td><td>25 m</td><td>45 m</td><td>Size 4</td><td>Ataque pesado moderno</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ka-60 / Ka-226</td><td>Rusia</td><td>15 m</td><td>30 m</td><td>Size 3</td><td>Transporte ligero y patrulla</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mi-26 Halo</td><td>URSS / Rusia</td><td>45 m</td><td>125 m</td><td>Size 7+</td><td>Helicóptero más grande del mundo, uso logístico pesado</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div> <!-- Fin pestaña LZ -->
+            </div> <!-- Cierra tab-content -->
+        </div> <!-- Cierra container -->
+    </div> <!-- Cierra tab-content general -->
 
-    <label>Línea 3: Number of Patients by Precedence</label>
-    <input type="text" placeholder="Ej. A - 2, B - 1"/>
-
-    <label>Línea 4: Special Equipment Required</label>
-    <input type="text" placeholder="Ej. None, Hoist, Extraction Equip"/>
-
-    <label>Línea 5: Number of Patients by Type</label>
-    <input type="text" placeholder="Ej. Litter - 1, Amb - 2"/>
-
-    <label>Línea 6: Security at Pickup Site</label>
-    <input type="text" placeholder="Ej. No enemy, possible small arms"/>
-
-    <label>Línea 7: Method of Marking Pickup Site</label>
-    <input type="text" placeholder="Ej. Panel, Pyro, Smoke"/>
-
-    <label>Línea 8: Patient Nationality and Status</label>
-    <input type="text" placeholder="Ej. 2 US Mil, 1 Civ"/>
-
-    <label>Línea 9: NBC Contamination</label>
-    <input type="text" placeholder="Ej. None, Nuclear, Biological, Chemical"/>
-  </div>
-  <!-- ==== PESTAÑA LZ BRIEFING (NUEVA) ==== -->
-  <div id="lz" class="tab-content">
-    <h2>LZ BRIEFING</h2>
-
-    <!-- Línea 1 -->
-    <label>Línea 1: Localización (GRID 8 dígitos)</label>
-    <input type="text" placeholder="0000 0000"/>
-
-    <!-- Línea 2 : Callsign / Freq -->
-    <label>Línea 2: Callsign / Freq</label>
-    <div class="row">
-      <input type="text" placeholder="ALPHA 1-1"/>
-      <input type="text" placeholder="Bloq 1"/>
-      <input type="text" placeholder="CH 1"/>
-    </div>
-
-    <!-- Línea 3 -->
-    <label>Línea 3: Marca en LZ</label>
-    <select>
-      <option>Alpha – Paneles</option>
-      <option>Bravo – Señal pirotécnica</option>
-      <option>Charlie – Humo</option>
-      <option>Delta – Ninguna</option>
-      <option>Echo – Otra</option>
-    </select>
-
-    <!-- Línea 4 -->
-    <label>Línea 4: Viento</label>
-    <div class="row">
-      <select><option>N</option><option>NE</option><option>E</option><option>SE</option><option>S</option><option>SW</option><option>W</option><option>NW</option></select>
-      <select><option>N</option><option>NE</option><option>E</option><option>SE</option><option>S</option><option>SW</option><option>W</option><option>NW</option></select>
-      <select>
-        <option>🟩 0.1-1.5 m/s Brisa ligera</option>
-        <option>🟨 1.6-3.5 m/s Viento leve</option>
-        <option>🟧 3.6-6.5 m/s Viento moderado</option>
-        <option>🟥 6.6-10 m/s Viento fuerte</option>
-        <option>🟪 10.1 m/s+ Viento extremo</option>
-      </select>
-    </div>
-
-    <!-- Línea 5 -->
-    <label>Línea 5: Tamaño LZ (ancho × largo)</label>
-    <div class="row">
-      <input class="small-input" type="text" placeholder="20"/>
-      <span class="x-text">×</span>
-      <input class="small-input" type="text" placeholder="30"/>
-      <span class="x-text">m</span>
-    </div>
-
-    <!-- Línea 6 -->
-    <label>Línea 6: Posibles amenazas</label>
-    <input type="text" placeholder="Árboles en E, línea AT al N"/>
-
-    <!-- Línea 7 -->
-    <label>Línea 7: Seguridad LZ</label>
-    <select>
-      <option>November – Sin enemigos</option>
-      <option>Papa – Posibles enemigos</option>
-      <option>Echo – Enemigos</option>
-      <option>X-Ray – Escolta armada</option>
-    </select>
-
-    <!-- Línea 8 -->
-    <label>Línea 8: Posición aliados</label>
-    <input type="text" placeholder="0000 0000"/>
-
-    <!-- Tabla helicópteros -->
-    <h3 class="mt-4">Tamaño y consideraciones para LZ</h3>
-    <div class="table-responsive">
-      <table>
-        <thead>
-          <tr>
-            <th>TIPO</th><th>ORIGEN</th><th>INDIV&nbsp;(m)</th><th>2 A/C&nbsp;(m)</th><th>SIZE</th><th>OBSERVACIONES</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>OH-6 / MH-6</td><td>EE. UU.</td><td>10×10</td><td>20×20</td><td>1</td><td>Inserción ligera</td></tr>
-          <tr><td>OH-58 Kiowa</td><td>EE. UU.</td><td>10×10</td><td>20×20</td><td>2</td><td>Observación</td></tr>
-          <tr><td>H-72A Lakota / EC145</td><td>EE. UU. / ALE</td><td>15×15</td><td>30×30</td><td>3</td><td>MEDEVAC</td></tr>
-          <tr><td>UH-1N / UH-1Y</td><td>EE. UU.</td><td>15×15</td><td>30×30</td><td>3</td><td>Multifunción</td></tr>
-          <tr><td>AH-1W / AH-1Z</td><td>EE. UU.</td><td>15×15</td><td>30×30</td><td>3</td><td>Ataque ligero</td></tr>
-          <tr><td>AW109</td><td>ITA / BEL</td><td>15×15</td><td>30×30</td><td>3</td><td>Ligero</td></tr>
-          <tr><td>NH90</td><td>OTAN</td><td>25×25</td><td>45×45</td><td>4</td><td>Transporte táctico</td></tr>
-          <tr><td>UH-60 Black Hawk</td><td>OTAN</td><td>25×25</td><td>45×45</td><td>4</td><td>Estándar OTAN</td></tr>
-          <tr><td>AH-64 Apache</td><td>EE. UU. / UK</td><td>25×25</td><td>45×45</td><td>4</td><td>Ataque pesado</td></tr>
-          <tr><td>AW149</td><td>ITA / POL</td><td>25×25</td><td>45×45</td><td>4</td><td>Alternativa BH</td></tr>
-          <tr><td>CH-46 Sea Knight</td><td>EE. UU.</td><td>30×30</td><td>60×60</td><td>5</td><td>Doble rotor</td></tr>
-          <tr><td>CH-47 Chinook</td><td>EE. UU./UK</td><td>30×30</td><td>60×60</td><td>5</td><td>Gran capacidad</td></tr>
-          <tr><td>H225M Caracal</td><td>FRA / POL</td><td>30×30</td><td>60×60</td><td>5</td><td>Pesa-do</td></tr>
-          <tr><td>Mi-8 / Mi-17</td><td>URSS / RUS</td><td>30×30</td><td>60×60</td><td>5</td><td>Robusto</td></tr>
-          <tr><td>CH-53E</td><td>EE. UU.</td><td>40×40</td><td>90×90</td><td>6</td><td>Muy grande</td></tr>
-          <tr><td>MV-22 Osprey</td><td>EE. UU.</td><td>40×40</td><td>90×90</td><td>6</td><td>Tilt-rotor</td></tr>
-          <tr><td>Merlin HC3/4</td><td>UK / ITA</td><td>40×40</td><td>90×90</td><td>6</td><td>Voluminoso</td></tr>
-          <tr><td>Mi-24 / 35</td><td>RUS / OTAN-E</td><td>30×30</td><td>60×60</td><td>5</td><td>Ataque/transp</td></tr>
-          <tr><td>Ka-52</td><td>RUS</td><td>25×25</td><td>45×45</td><td>4</td><td>Rotores coax</td></tr>
-          <tr><td>Mi-28</td><td>RUS</td><td>25×25</td><td>45×45</td><td>4</td><td>Ataque moderno</td></tr>
-          <tr><td>Ka-60 / 226</td><td>RUS</td><td>15×15</td><td>30×30</td><td>3</td><td>Lig-transp</td></tr>
-          <tr><td>Mi-26</td><td>URSS / RUS</td><td>45×45</td><td>120×120</td><td>7+</td><td>Más grande</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- Guía señalización -->
-    <h3 class="mt-4">Guía de señalización de LZ</h3>
-    <img src="img/viento.png" class="img-fluid border border-light rounded" alt="Guía viento">
-    <p class="note">
-      *USA PANELES AÉREOS BIEN ASEGURADOS (DÍA), BARRAS QUÍMICAS (NOCHE), ESPEJO DE SEÑALES (DÍA) Y BUZZ SAW IR (NOCHE) PARA IDENTIFICACIÓN Y MARCADO DE LA ZONA DE ATERRIZAJE (LZ)
-    </p>
-
-  </div><!-- fin LZ -->
-</div><!-- fin .tab-content -->
-
-<script>
-  function openTab(id) {
-    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-    event.target.classList.add('active');
-    document.getElementById(id).classList.add('active');
-  }
-</script>
+    <!-- Scripts de Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

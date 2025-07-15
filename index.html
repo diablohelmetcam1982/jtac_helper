@@ -24,215 +24,636 @@
                 <li class="nav-item">
                     <a class="nav-link" id="tab-medevac-button" data-bs-toggle="tab" data-bs-target="#tab-medevac" type="button" role="tab">MEDEVAC</a>
                 </li>
-                <!-- NUEVA PESTAÑA -->
-                <li class="nav-item">
-                    <a class="nav-link" id="tab-lz-button" data-bs-toggle="tab" data-bs-target="#tab-lz" type="button" role="tab">LZ BRIEFING</a>
-                </li>
             </ul>
             <div class="tab-content">
-                <!-- CONTENIDO ORIGINAL DE LA PESTAÑA CAS -->
-                <div class="tab-pane fade show active" id="tab-cas" role="tabpanel">
-                    <object data="cas.html" type="text/html" width="100%" height="1000px"></object>
-                </div>
-
-                <!-- CONTENIDO ORIGINAL DE LA PESTAÑA MEDEVAC -->
-                <div class="tab-pane fade" id="tab-medevac" role="tabpanel">
-                    <object data="medevac.html" type="text/html" width="100%" height="1000px"></object>
-                </div>
-
-                <!-- NUEVA PESTAÑA LZ BRIEFING -->
-                <div class="tab-pane fade" id="tab-lz" role="tabpanel">
-                    <div class="mt-4">
-                        <h2 class="text-center mb-3">LZ BRIEFING</h2>
-
-                        <form>
-                            <div class="mb-3">
-                                <label class="form-label">Línea 1 - Ubicación LZ (MGRS)</label>
-                                <input type="text" class="form-control" placeholder="Ej: 38S LB 12345 67890">
-                            </div>
-
-                            <div class="mb-3">
-                                <label class="form-label">Línea 2 - Callsign / Freq</label>
-                                <div class="row">
-                                    <div class="col">
-                                        <input type="text" class="form-control" placeholder="ALPHA 1-1">
-                                    </div>
-                                    <div class="col">
-                                        <input type="text" class="form-control" placeholder="Bloq 1">
-                                    </div>
-                                    <div class="col">
-                                        <input type="text" class="form-control" placeholder="CH 1">
+                <div class="tab-pane show active" id="tab-cas" role="tabpanel" aria-labelledby="tab-cas-button" tabindex="0">
+                    <div class="container-fluid mt-3">
+                        <form action="">
+                            <div class="row m-1">
+                                <div class="col-5 mx-auto">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="input-group input-group-sm">
+                                                <span class="input-group-text"><img title="JTAC" src="./img/JTAC.png"></span>
+                                                <input type="text" class="form-control" id="jtac_name" placeholder="UNIFORM 1-1">
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="input-group input-group-sm">
+                                                <span class="input-group-text"><img title="Piloto" src="./img/Piloto.png"></span>
+                                                <input type="text" class="form-control" id="pilot_name" placeholder="VENOM 6-1">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-
-                            <div class="mb-3">
-                                <label class="form-label">Línea 3 - Marcado Nocturno (si aplica)</label>
-                                <select class="form-select">
-                                    <option selected disabled>Selecciona</option>
-                                    <option>Estroboscópica IR</option>
-                                    <option>IR Coded Panel</option>
-                                    <option>Luz química IR</option>
-                                    <option>Fuego / Antorcha</option>
-                                    <option>Otro (especificar por radio)</option>
-                                </select>
-                            </div>
-
-                            <div class="mb-3">
-                                <label class="form-label">Línea 4 - Marcado Diurno (si aplica)</label>
-                                <select class="form-select">
-                                    <option selected disabled>Selecciona</option>
-                                    <option>Panel VS-17</option>
-                                    <option>Humo de color</option>
-                                    <option>Fuego / Bandeja</option>
-                                    <option>Otro (especificar por radio)</option>
-                                </select>
-                            </div>
-
-                            <div class="mb-3">
-                                <label class="form-label">Línea 5 - Tamaño LZ (m)</label>
-                                <div class="d-flex align-items-center gap-2">
-                                    <input type="text" class="form-control text-center" placeholder="20" style="max-width: 80px;">
-                                    <span class="text-light">x</span>
-                                    <input type="text" class="form-control text-center" placeholder="30" style="max-width: 80px;">
-                                    <span class="text-light">m</span>
-                                </div>
-                            </div>
-
-                            <div class="mb-3">
-                                <label class="form-label">Línea 6 - Viento</label>
-                                <div class="row">
-                                    <div class="col">
-                                        <select class="form-select">
-                                            <option selected disabled>Desde</option>
-                                            <option>N</option>
-                                            <option>NE</option>
-                                            <option>E</option>
-                                            <option>SE</option>
-                                            <option>S</option>
-                                            <option>SW</option>
-                                            <option>W</option>
-                                            <option>NW</option>
-                                        </select>
-                                    </div>
-                                    <div class="col">
-                                        <select class="form-select">
-                                            <option selected disabled>Hacia</option>
-                                            <option>N</option>
-                                            <option>NE</option>
-                                            <option>E</option>
-                                            <option>SE</option>
-                                            <option>S</option>
-                                            <option>SW</option>
-                                            <option>W</option>
-                                            <option>NW</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="mb-3">
-                                <label class="form-label">Línea 7 - Terreno / Obstáculos</label>
-                                <input type="text" class="form-control" placeholder="Ej: Árboles al norte, edificio al este, postes en centro">
-                            </div>
-
-                            <div class="mb-3">
-                                <label class="form-label">Línea 8 - Amenazas / Seguridad</label>
-                                <input type="text" class="form-control" placeholder="Ej: Contacto lejano al sur, zona no asegurada">
                             </div>
                         </form>
-
-                        <h3 class="mt-5 text-center">TAMAÑO Y CONSIDERACIONES PARA LZ</h3>
-
-                        <div class="table-responsive">
-                            <table class="table table-dark table-striped table-bordered table-sm align-middle">
-                                <thead class="table-secondary text-dark text-center">
-                                    <tr>
-                                        <th>TIPO DE HELICÓPTERO</th>
-                                        <th>PAÍS / ORIGEN</th>
-                                        <th>TAMAÑO INDIVIDUAL</th>
-                                        <th>TAMAÑO 2 A/C</th>
-                                        <th>SIZE OTAN</th>
-                                        <th>OBSERVACIONES</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>OH-6 / MH-6</td><td>EE. UU.</td><td>10 m</td><td>20 m</td><td>Size 1</td><td>Inserción ligera, rotor pequeño</td>
-                                    </tr>
-                                    <tr>
-                                        <td>OH-58 Kiowa</td><td>EE. UU.</td><td>10 m</td><td>20 m</td><td>Size 2</td><td>Observación / escolta</td>
-                                    </tr>
-                                    <tr>
-                                        <td>H-72A Lakota / EC145</td><td>EE. UU. / Alemania</td><td>15 m</td><td>30 m</td><td>Size 3</td><td>Ligero, MEDEVAC / utilidad</td>
-                                    </tr>
-                                    <tr>
-                                        <td>UH-1N / UH-1Y</td><td>EE. UU.</td><td>15 m</td><td>30 m</td><td>Size 3</td><td>Multifunción ligero</td>
-                                    </tr>
-                                    <tr>
-                                        <td>AH-1W / AH-1Z</td><td>EE. UU. (USMC)</td><td>15 m</td><td>30 m</td><td>Size 3</td><td>Patines estrechos, terreno plano</td>
-                                    </tr>
-                                    <tr>
-                                        <td>AW109</td><td>Italia, Bélgica</td><td>15 m</td><td>30 m</td><td>Size 3</td><td>Ligero, transporte/enlace</td>
-                                    </tr>
-                                    <tr>
-                                        <td>NH90 TTH / NFH</td><td>Multinacional OTAN</td><td>25 m</td><td>45 m</td><td>Size 4</td><td>Transporte táctico OTAN</td>
-                                    </tr>
-                                    <tr>
-                                        <td>UH-60 Black Hawk</td><td>EE. UU. / OTAN</td><td>25 m</td><td>45 m</td><td>Size 4</td><td>Estándar OTAN</td>
-                                    </tr>
-                                    <tr>
-                                        <td>AH-64 Apache</td><td>EE. UU. / UK / Grecia</td><td>25 m</td><td>45 m</td><td>Size 4</td><td>Ataque pesado</td>
-                                    </tr>
-                                    <tr>
-                                        <td>AW149</td><td>Italia / Polonia</td><td>25 m</td><td>45 m</td><td>Size 4</td><td>Alternativa europea al Black Hawk</td>
-                                    </tr>
-                                    <tr>
-                                        <td>CH-46 Sea Knight</td><td>EE. UU. (retirado)</td><td>30 m</td><td>60 m</td><td>Size 5</td><td>Transporte medio, doble rotor</td>
-                                    </tr>
-                                    <tr>
-                                        <td>CH-47 Chinook</td><td>EE. UU. / UK / ESP / NL</td><td>30 m</td><td>60 m</td><td>Size 5</td><td>Gran capacidad, rotor tándem</td>
-                                    </tr>
-                                    <tr>
-                                        <td>H225M Caracal / EC725</td><td>Francia / Polonia</td><td>30 m</td><td>60 m</td><td>Size 5</td><td>Táctico pesado, moderna OTAN</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Mi-8 / Mi-17</td><td>URSS / Rusia / OTAN-ESTE</td><td>30 m</td><td>60 m</td><td>Size 5</td><td>Muy común, robusto, gran capacidad</td>
-                                    </tr>
-                                    <tr>
-                                        <td>CH-53E Super Stallion</td><td>EE. UU.</td><td>40 m</td><td>90 m</td><td>Size 6</td><td>Muy grande, alta turbulencia</td>
-                                    </tr>
-                                    <tr>
-                                        <td>MV-22 Osprey</td><td>EE. UU.</td><td>40 m</td><td>90 m</td><td>Size 6</td><td>Rotor basculante, requiere espacio extra</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Merlin HC3/4 (AW101)</td><td>UK / Italia</td><td>40 m</td><td>90 m</td><td>Size 6</td><td>Gran volumen y longitud</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Mi-24 / Mi-35 Hind</td><td>URSS / Rusia / OTAN-ESTE</td><td>30 m</td><td>60 m</td><td>Size 5</td><td>Ataque + transporte blindado</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Ka-52 Alligator</td><td>Rusia</td><td>25 m</td><td>45 m</td><td>Size 4</td><td>Ataque, rotores coaxiales</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Mi-28 Havoc</td><td>Rusia</td><td>25 m</td><td>45 m</td><td>Size 4</td><td>Ataque pesado moderno</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Ka-60 / Ka-226</td><td>Rusia</td><td>15 m</td><td>30 m</td><td>Size 3</td><td>Transporte ligero y patrulla</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Mi-26 Halo</td><td>URSS / Rusia</td><td>45 m</td><td>125 m</td><td>Size 7+</td><td>Helicóptero más grande del mundo, uso logístico pesado</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <div class="row h-100">
+                            <div class="col-4">
+                                <h1>CHECK-IN</h1>
+                                <div class="m-4">
+                                    <ul class="nav nav-tabs">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" id="tab-check-in-1-button" data-bs-toggle="tab" data-bs-target="#tab-check-in-1" type="button" role="tab">1</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="tab-check-in-2-button" data-bs-toggle="tab" data-bs-target="#tab-check-in-2" type="button" role="tab">2</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="tab-check-in-3-button" data-bs-toggle="tab" data-bs-target="#tab-check-in-3" type="button" role="tab">3</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="tab-check-in-4-button" data-bs-toggle="tab" data-bs-target="#tab-check-in-4" type="button" role="tab">4</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="tab-check-in-5-button" data-bs-toggle="tab" data-bs-target="#tab-check-in-5" type="button" role="tab">5</a>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div class="tab-pane show active" id="tab-check-in-1" role="tabpanel" aria-labelledby="tab-check-in-1-button" tabindex="0">
+                                            <form action="">
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 40px;">L1</span>
+                                                    <span class="input-group-text" style="width: 160px;">Indicativo</span>
+                                                    <input type="text" class="form-control" id="check_in_line_1" placeholder="VENOM 6-1">
+                                                </div>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 40px;">L2</span>
+                                                    <span class="input-group-text" style="width: 160px;">Aeronave</span>
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="AH-6M">
+                                                </div>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 40px;">L3</span>
+                                                    <span class="input-group-text" style="width: 160px;">Posición</span>
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="Sobre HZ TEXAS">
+                                                </div>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 40px;">L4</span>
+                                                    <span class="input-group-text" style="width: 160px;">Armamento</span>
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="14">
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="Cohetes">
+                                                </div>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 200px;"></span>
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="">
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="">
+                                                </div>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 200px;"></span>
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="">
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="">
+                                                </div>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 200px;"></span>
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="">
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="">
+                                                </div>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 200px;"></span>
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="">
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="">
+                                                </div>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 200px;"></span>
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="">
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="">
+                                                </div>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 40px;">L5</span>
+                                                    <span class="input-group-text" style="width: 160px;">Tiempo de estación</span>
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="120 Minutos">
+                                                </div>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 40px;">L6</span>
+                                                    <span class="input-group-text" style="width: 160px;">Código de aborto</span>
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="BREAK BREAK BREAK">
+                                                </div>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 40px;">L7</span>
+                                                    <span class="input-group-text" style="width: 160px;">Comentarios</span>
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="">
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="tab-pane" id="tab-check-in-2" role="tabpanel" aria-labelledby="tab-check-in-2-button" tabindex="0">
+                                            <form action="">
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 40px;">L1</span>
+                                                    <span class="input-group-text" style="width: 160px;">Indicativo</span>
+                                                    <input type="text" class="form-control" id="check_in_line_1" placeholder="VENOM 6-1">
+                                                </div>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 40px;">L2</span>
+                                                    <span class="input-group-text" style="width: 160px;">Aeronave</span>
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="AH-6M">
+                                                </div>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 40px;">L3</span>
+                                                    <span class="input-group-text" style="width: 160px;">Posición</span>
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="Sobre HZ TEXAS">
+                                                </div>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 40px;">L4</span>
+                                                    <span class="input-group-text" style="width: 160px;">Armamento</span>
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="14">
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="Cohetes">
+                                                </div>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 200px;"></span>
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="">
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="">
+                                                </div>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 200px;"></span>
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="">
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="">
+                                                </div>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 200px;"></span>
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="">
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="">
+                                                </div>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 200px;"></span>
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="">
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="">
+                                                </div>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 200px;"></span>
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="">
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="">
+                                                </div>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 40px;">L5</span>
+                                                    <span class="input-group-text" style="width: 160px;">Tiempo de estación</span>
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="120 Minutos">
+                                                </div>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 40px;">L6</span>
+                                                    <span class="input-group-text" style="width: 160px;">Código de aborto</span>
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="BREAK BREAK BREAK">
+                                                </div>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 40px;">L7</span>
+                                                    <span class="input-group-text" style="width: 160px;">Comentarios</span>
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="">
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="tab-pane" id="tab-check-in-3" role="tabpanel" aria-labelledby="tab-check-in-3-button" tabindex="0">
+                                            <form action="">
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 40px;">L1</span>
+                                                    <span class="input-group-text" style="width: 160px;">Indicativo</span>
+                                                    <input type="text" class="form-control" id="check_in_line_1" placeholder="VENOM 6-1">
+                                                </div>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 40px;">L2</span>
+                                                    <span class="input-group-text" style="width: 160px;">Aeronave</span>
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="AH-6M">
+                                                </div>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 40px;">L3</span>
+                                                    <span class="input-group-text" style="width: 160px;">Posición</span>
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="Sobre HZ TEXAS">
+                                                </div>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 40px;">L4</span>
+                                                    <span class="input-group-text" style="width: 160px;">Armamento</span>
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="14">
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="Cohetes">
+                                                </div>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 200px;"></span>
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="">
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="">
+                                                </div>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 200px;"></span>
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="">
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="">
+                                                </div>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 200px;"></span>
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="">
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="">
+                                                </div>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 200px;"></span>
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="">
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="">
+                                                </div>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 200px;"></span>
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="">
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="">
+                                                </div>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 40px;">L5</span>
+                                                    <span class="input-group-text" style="width: 160px;">Tiempo de estación</span>
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="120 Minutos">
+                                                </div>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 40px;">L6</span>
+                                                    <span class="input-group-text" style="width: 160px;">Código de aborto</span>
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="BREAK BREAK BREAK">
+                                                </div>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 40px;">L7</span>
+                                                    <span class="input-group-text" style="width: 160px;">Comentarios</span>
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="">
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="tab-pane" id="tab-check-in-4" role="tabpanel" aria-labelledby="tab-check-in-4-button" tabindex="0">
+                                            <form action="">
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 40px;">L1</span>
+                                                    <span class="input-group-text" style="width: 160px;">Indicativo</span>
+                                                    <input type="text" class="form-control" id="check_in_line_1" placeholder="VENOM 6-1">
+                                                </div>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 40px;">L2</span>
+                                                    <span class="input-group-text" style="width: 160px;">Aeronave</span>
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="AH-6M">
+                                                </div>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 40px;">L3</span>
+                                                    <span class="input-group-text" style="width: 160px;">Posición</span>
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="Sobre HZ TEXAS">
+                                                </div>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 40px;">L4</span>
+                                                    <span class="input-group-text" style="width: 160px;">Armamento</span>
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="14">
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="Cohetes">
+                                                </div>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 200px;"></span>
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="">
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="">
+                                                </div>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 200px;"></span>
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="">
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="">
+                                                </div>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 200px;"></span>
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="">
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="">
+                                                </div>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 200px;"></span>
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="">
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="">
+                                                </div>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 200px;"></span>
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="">
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="">
+                                                </div>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 40px;">L5</span>
+                                                    <span class="input-group-text" style="width: 160px;">Tiempo de estación</span>
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="120 Minutos">
+                                                </div>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 40px;">L6</span>
+                                                    <span class="input-group-text" style="width: 160px;">Código de aborto</span>
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="BREAK BREAK BREAK">
+                                                </div>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 40px;">L7</span>
+                                                    <span class="input-group-text" style="width: 160px;">Comentarios</span>
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="">
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="tab-pane" id="tab-check-in-5" role="tabpanel" aria-labelledby="tab-check-in-5-button" tabindex="0">
+                                            <form action="">
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 40px;">L1</span>
+                                                    <span class="input-group-text" style="width: 160px;">Indicativo</span>
+                                                    <input type="text" class="form-control" id="check_in_line_1" placeholder="VENOM 6-1">
+                                                </div>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 40px;">L2</span>
+                                                    <span class="input-group-text" style="width: 160px;">Aeronave</span>
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="AH-6M">
+                                                </div>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 40px;">L3</span>
+                                                    <span class="input-group-text" style="width: 160px;">Posición</span>
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="Sobre HZ TEXAS">
+                                                </div>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 40px;">L4</span>
+                                                    <span class="input-group-text" style="width: 160px;">Armamento</span>
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="14">
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="Cohetes">
+                                                </div>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 200px;"></span>
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="">
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="">
+                                                </div>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 200px;"></span>
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="">
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="">
+                                                </div>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 200px;"></span>
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="">
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="">
+                                                </div>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 200px;"></span>
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="">
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="">
+                                                </div>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 200px;"></span>
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="">
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="">
+                                                </div>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 40px;">L5</span>
+                                                    <span class="input-group-text" style="width: 160px;">Tiempo de estación</span>
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="120 Minutos">
+                                                </div>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 40px;">L6</span>
+                                                    <span class="input-group-text" style="width: 160px;">Código de aborto</span>
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="BREAK BREAK BREAK">
+                                                </div>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" style="width: 40px;">L7</span>
+                                                    <span class="input-group-text" style="width: 160px;">Comentarios</span>
+                                                    <input type="text" class="form-control" id="check_in_line_2" placeholder="">
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="m-4">
+                                    <table class="table table-sm table-warning">
+                                        <tr>
+                                            <td style="background-color: #ffda6a;" class="align-middle table-fit"><img title="Piloto" src="./img/Piloto.png"></td>
+                                            <td style="background-color: #ffda6a;" class="align-middle"><strong>Radio check</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="background-color: #ffda6a;" colspan="2"><em>"UNIFORM 1-1, VENOM 6-1 entrando en el AO, radio check"</em></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="background-color: #ffe69c;" class="align-middle"><img title="JTAC" src="./img/JTAC.png"></td>
+                                            <td style="background-color: #ffe69c;" class="align-middle"><strong>Confirmación + información importante + solicitud de Check-in</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="background-color: #ffe69c;" colspan="2"><em>"VENOM 6-1, UNIFORM 1-1, 5/5, proceda a HZ TEXAS, posible ZSU-23 en el AO, es el único avión en la zona, proceda con Check-In cuando pueda"</em></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="background-color: #ffda6a;" class="align-middle"><img title="Piloto" src="./img/Piloto.png"></td>
+                                            <td style="background-color: #ffda6a;" class="align-middle"><strong>Check-in</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="background-color: #ffe69c;" class="align-middle"><img title="JTAC" src="./img/JTAC.png"></td>
+                                            <td style="background-color: #ffe69c;" class="align-middle"><strong>Readback</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="background-color: #ffda6a;" class="align-middle"><img title="Piloto" src="./img/Piloto.png"></td>
+                                            <td style="background-color: #ffda6a;" class="align-middle"><strong>Confirmación + Solicitud SITREP</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="background-color: #ffda6a;" colspan="2"><em>"VENOM 1-1, readback correcto, a la espera de SITREP"</em></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="background-color: #ffe69c;" class="align-middle"><img title="JTAC" src="./img/JTAC.png"></td>
+                                            <td style="background-color: #ffe69c;" class="align-middle"><strong>SITREP</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="background-color: #ffe69c;" colspan="2"><em>"Amenaza de ZSU-23 y fuego de armas estáticas y ligeras. Vehículos enemigos ligeros y APCs. Infantería dispersa en forma de patrullas. Las tropas aliadas se encuentran sobrepasando WP OHIO en dirección S"</em></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="background-color: #ffda6a;" class="align-middle"><img title="Piloto" src="./img/Piloto.png"></td>
+                                            <td style="background-color: #ffda6a;" class="align-middle"><strong>A la espera de órdenes</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="background-color: #ffda6a;" colspan="2"><em>"Copiado SITREP, a la espera de órdenes."</em></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <h1>TIPO I & II</h1>
+                                <div class="m-4">
+                                    <form action="">
+                                        <div class="input-group input-group-sm">
+                                            <span class="input-group-text" style="width: 40px;">L1</span>
+                                            <span class="input-group-text" style="width: 160px;">Posición</span>
+                                            <input type="text" class="form-control" id="check_in_line_1" placeholder="Objetivo OHIO">
+                                        </div>
+                                        <div class="input-group input-group-sm">
+                                            <span class="input-group-text" style="width: 40px;">L2</span>
+                                            <span class="input-group-text" style="width: 160px;">Rumbo</span>
+                                            <input type="text" class="form-control" id="check_in_line_2" placeholder="260">
+                                        </div>
+                                        <div class="input-group input-group-sm">
+                                            <span class="input-group-text" style="width: 40px;">L3</span>
+                                            <span class="input-group-text" style="width: 160px;">Distancia</span>
+                                            <input type="text" class="form-control" id="check_in_line_2" placeholder="300m">
+                                        </div>
+                                        <div class="input-group input-group-sm">
+                                            <span class="input-group-text" style="width: 40px;">L4</span>
+                                            <span class="input-group-text" style="width: 160px;">Descripción</span>
+                                            <input type="text" class="form-control" id="check_in_line_2" placeholder="Infantería enemiga">
+                                        </div>
+                                        <div class="input-group input-group-sm">
+                                            <span class="input-group-text" style="width: 40px;">L5</span>
+                                            <span class="input-group-text" style="width: 160px;">Marca</span>
+                                            <input type="text" class="form-control" id="check_in_line_2" placeholder="Humo rojo">
+                                        </div>
+                                        <div class="input-group input-group-sm">
+                                            <span class="input-group-text" style="width: 40px;">L6</span>
+                                            <span class="input-group-text" style="width: 160px;">Comentarios</span>
+                                            <input type="text" class="form-control" id="check_in_line_2" placeholder="">
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="m-4">
+                                    <table class="table table-sm table-info table-striped">
+                                        <tr>
+                                            <td class="align-middle table-fit"><img title="Piloto" src="./img/Piloto.png"></td>
+                                            <td class="align-middle"><em>"ENTRANDO"</em></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="align-middle"><img title="JTAC" src="./img/JTAC.png"></td>
+                                            <td class="align-middle"><em>"CONTINUE"</em></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="align-middle table-fit"><img title="Piloto" src="./img/Piloto.png"></td>
+                                            <td class="align-middle"><em>"TALLY"&nbsp;&nbsp;/&nbsp;&nbsp;"NO JOY"</em></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="align-middle"><img title="JTAC" src="./img/JTAC.png"></td>
+                                            <td class="align-middle"><em>"AUTORIZADO"</em></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="align-middle table-fit"><img title="Piloto" src="./img/Piloto.png"></td>
+                                            <td class="align-middle"><em>"GUNS"&nbsp;&nbsp;/&nbsp;&nbsp;"RIFLE"&nbsp;&nbsp;/&nbsp;&nbsp;"PAVEWAY"&nbsp;&nbsp;/&nbsp;&nbsp;"ROCKETS"</em></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="align-middle"><img title="JTAC" src="./img/JTAC.png"></td>
+                                            <td class="align-middle"><em>"SPLASH"&nbsp;&nbsp;/&nbsp;&nbsp;"REACOMETER"&nbsp;&nbsp;/&nbsp;&nbsp;"MANTENER"</em></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="align-middle table-fit"><img title="Piloto" src="./img/Piloto.png"></td>
+                                            <td class="align-middle"><em>"SALIENDO"&nbsp;&nbsp;/&nbsp;&nbsp;"ENTRANDO"</em></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <h1>TIPO III</h1>
+                                <div class="m-4">
+                                    <form action="">
+                                        <div class="input-group input-group-sm">
+                                            <span class="input-group-text" style="width: 40px;">L1</span>
+                                            <span class="input-group-text" style="width: 160px;">Posición</span>
+                                            <input type="text" class="form-control" id="check_in_line_1" placeholder="Objetivo OHIO">
+                                        </div>
+                                        <div class="input-group input-group-sm">
+                                            <span class="input-group-text" style="width: 40px;">L2</span>
+                                            <span class="input-group-text" style="width: 160px;">Descripción</span>
+                                            <input type="text" class="form-control" id="check_in_line_2" placeholder="Tanques enemigos">
+                                        </div>
+                                        <div class="input-group input-group-sm">
+                                            <span class="input-group-text" style="width: 40px;">L3</span>
+                                            <span class="input-group-text" style="width: 160px;">Comentarios</span>
+                                            <input type="text" class="form-control" id="check_in_line_2" placeholder="">
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="m-4">
+                                    <table class="table table-sm table-danger table-striped">
+                                        <tr>
+                                            <td class="align-middle table-fit"><img title="Piloto" src="./img/Piloto.png"></td>
+                                            <td class="align-middle"><em>"ENTRANDO"</em></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="align-middle"><img title="JTAC" src="./img/JTAC.png"></td>
+                                            <td class="align-middle"><em>"CONTINUE"</em></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="align-middle table-fit"><img title="Piloto" src="./img/Piloto.png"></td>
+                                            <td class="align-middle"><em>"CONTACTO"</em></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="align-middle"><img title="JTAC" src="./img/JTAC.png"></td>
+                                            <td class="align-middle"><em>"ARMAS LIBRES"</em></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="align-middle table-fit"><img title="Piloto" src="./img/Piloto.png"></td>
+                                            <td class="align-middle"><em>"SALIENDO"&nbsp;&nbsp;/&nbsp;&nbsp;"ENTRANDO"</em></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div> <!-- Fin pestaña LZ -->
-            </div> <!-- Cierra tab-content -->
-        </div> <!-- Cierra container -->
-    </div> <!-- Cierra tab-content general -->
+                </div>
+                <div class="tab-pane" id="tab-medevac" role="tabpanel" aria-labelledby="tab-medevac-button" tabindex="0">
+                    <div class="container-fluid mt-3">
+                        <div class="row h-100">
+                            <div class="col-12 col-lg-10 col-xl-8 mx-auto">
+                                <h1>MEDEVAC</h1>
+                                <div class="m-4">
+                                    <form action="">
+                                        <div class="input-group input-group-sm">
+                                            <span class="input-group-text" style="width: 40px;">L1</span>
+                                            <span class="input-group-text" style="width: 160px;">Posición</span>
+                                            <input type="text" class="form-control" id="check_in_line_1" placeholder="Objetivo OHIO">
+                                        </div>
+                                        <div class="input-group input-group-sm">
+                                            <span class="input-group-text" style="width: 40px;">L2</span>
+                                            <span class="input-group-text">Pacientes</span>
+                                        </div>
+                                        <div class="input-group input-group-sm">
+                                            <span class="input-group-text" style="width: 400px; margin-left: 40px;">Rojo (Pérdida fatal, fracturas, atención avanzada...)</span>
+                                            <input type="number" value="0" min="0" class="form-control">
+                                        </div>
+                                        <div class="input-group input-group-sm">
+                                            <span class="input-group-text" style="width: 400px; margin-left: 40px;">Naranja (Herido pero estable)</span>
+                                            <input type="number" value="0" min="0" class="form-control">
+                                        </div>
+                                        <div class="input-group input-group-sm">
+                                            <span class="input-group-text" style="width: 400px; margin-left: 40px;">Amarillo (Leve)</span>
+                                            <input type="number" value="0" min="0" class="form-control">
+                                        </div>
+                                        <div class="input-group input-group-sm">
+                                            <span class="input-group-text" style="width: 400px; margin-left: 40px;">Transporte (Sólo transporte)</span>
+                                            <input type="number" value="0" min="0" class="form-control">
+                                        </div>
+                                        <div class="input-group input-group-sm">
+                                            <span class="input-group-text" style="width: 40px;">L3</span>
+                                            <span class="input-group-text">Dolencias específicas</span>
+                                        </div>
+                                        <div class="input-group input-group-sm">
+                                            <span class="input-group-text" style="width: 400px; margin-left: 40px;">Charlie (Cirugía)</span>
+                                            <input type="number" value="0" min="0" class="form-control">
+                                        </div>
+                                        <div class="input-group input-group-sm">
+                                            <span class="input-group-text" style="width: 400px; margin-left: 40px;">Romeo (Respiratorio)</span>
+                                            <input type="number" value="0" min="0" class="form-control">
+                                        </div>
+                                        <div class="input-group input-group-sm">
+                                            <span class="input-group-text" style="width: 400px; margin-left: 40px;">Delta (Diálisis)</span>
+                                            <input type="number" value="0" min="0" class="form-control">
+                                        </div>
+                                        <div class="input-group input-group-sm">
+                                            <span class="input-group-text" style="width: 400px; margin-left: 40px;">Tango, Tango, Tango (Fuera de control)</span>
+                                        </div>
+                                        <div class="input-group input-group-sm">
+                                            <span class="input-group-text" style="width: 40px;">L4</span>
+                                            <span class="input-group-text" style="width: 160px;">Seguridad en LZ</span>
+                                            <select class="form-select">
+                                                <option selected value="SIERRA">SIERRA (Segura)</option>
+                                                <option value="PAPA">PAPA (Posibles enemigos)</option>
+                                                <option value="ECHO">ECHO (Enemigos confirmados)</option>
+                                                <option value="X-RAY">X-RAY (Escolta requerida)</option>
+                                            </select>
+                                        </div>
+                                        <div class="input-group input-group-sm">
+                                            <span class="input-group-text" style="width: 40px;">L5</span>
+                                            <span class="input-group-text" style="width: 160px;">Marcaje de zona</span>
+                                            <select class="form-select">
+                                                <option selected value="HOTEL">HOTEL (Humo + Color)</option>
+                                                <option value="PAPA">Papa (Paneles VS)</option>
+                                                <option value="FOXTROT">FOXTROT (Humo de fuego)</option>
+                                                <option value="NOVEMBER">NOVEMBER (Nada)</option>
+                                                <option value="OSCAR">OSCAR (Otros: IR, vehículo, etc)</option>
+                                            </select>
+                                        </div>
+                                        <div class="input-group input-group-sm">
+                                            <span class="input-group-text" style="width: 40px;">L6</span>
+                                            <span class="input-group-text" style="width: 160px;">Observaciones</span>
+                                            <input type="text" class="form-control" id="check_in_line_2" placeholder="">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <!-- Scripts de Bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 </body>
+
 </html>
